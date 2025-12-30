@@ -50,7 +50,7 @@ public class CustomCacheAspect {
 
     private CustomCacheHandler findCacheHandler(CacheStrategy cacheStrategy) {
         return customCacheHandlers.stream()
-                .filter(hadnler -> hadnler.supports(cacheStrategy))
+                .filter(handler -> handler.supports(cacheStrategy))
                 .findFirst()
                 .orElseThrow();
     }

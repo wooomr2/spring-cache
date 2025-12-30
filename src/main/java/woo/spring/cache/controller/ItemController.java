@@ -31,9 +31,9 @@ public class ItemController {
 
     @GetMapping("/cache-strategy/{cacheStrategy}/items/infinite-scroll")
     public ItemPageResponse readAllInfiniteScroll(@PathVariable CacheStrategy cacheStrategy,
-                                                  @RequestParam(required = false) Long lastItemid,
+                                                  @RequestParam(required = false) Long lastItemId,
                                                   @RequestParam Long pageSize) {
-        return resolveCacheHandler(cacheStrategy).readAllInfiniteScroll(lastItemid, pageSize);
+        return resolveCacheHandler(cacheStrategy).readAllInfiniteScroll(lastItemId, pageSize);
     }
 
     @PostMapping("/cache-strategy/{cacheStrategy}/items")
@@ -52,7 +52,6 @@ public class ItemController {
     public void update(@PathVariable CacheStrategy cacheStrategy, @PathVariable Long itemId) {
         resolveCacheHandler(cacheStrategy).delete(itemId);
     }
-
 
     private ItemCacheService resolveCacheHandler(CacheStrategy cacheStrategy) {
         return itemCacheServices.stream()
