@@ -7,8 +7,8 @@ import woo.spring.cache.model.ItemUpdateRequest;
 import woo.spring.cache.service.response.ItemPageResponse;
 import woo.spring.cache.service.response.ItemResponse;
 
-public class SpringCacheStrategyApiTest {
-    static final CacheStrategy CACHE_STRATEGY = CacheStrategy.SPRING_CACHE_ANNOTATION;
+public class NullObjectPatternCacheStrategyApiTest {
+    static final CacheStrategy CACHE_STRATEGY = CacheStrategy.NULL_OBJECT_PATTERN;
 
     @Test
     void createAndReadAndUpdateAndDelete() {
@@ -67,7 +67,8 @@ public class SpringCacheStrategyApiTest {
     void readNullData() {
         for (int i = 0; i < 3; i++) {
             try {
-                ItemApiTestUtils.read(CACHE_STRATEGY, 99999L);
+                ItemResponse itemResponse = ItemApiTestUtils.read(CACHE_STRATEGY, 99999L);
+                System.out.println(itemResponse);
             } catch (Exception e) {
                 e.printStackTrace();
             }
