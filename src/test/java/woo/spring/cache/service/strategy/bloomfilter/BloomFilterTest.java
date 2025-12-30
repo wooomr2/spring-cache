@@ -1,7 +1,6 @@
-package woo.spring.cache;
+package woo.spring.cache.service.strategy.bloomfilter;
 
 import org.junit.jupiter.api.Test;
-import woo.spring.cache.service.strategy.bloomfilter.BloomFilter;
 
 import java.util.List;
 
