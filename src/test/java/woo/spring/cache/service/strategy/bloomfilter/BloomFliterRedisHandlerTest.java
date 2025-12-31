@@ -16,9 +16,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 class BloomFliterRedisHandlerTest extends RedisTestContainerSupport {
 
     @Autowired
-    BloomFliterRedisHandler bloomFilterRedisHandler;
+    BloomFilterRedisHandler bloomFilterRedisHandler;
     @Autowired
-    private BloomFliterRedisHandler bloomFliterRedisHandler;
+    private BloomFilterRedisHandler bloomFliterRedisHandler;
 
     @Test
     void add() {

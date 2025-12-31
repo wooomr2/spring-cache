@@ -10,7 +10,7 @@ import java.util.List;
 
 @Component
 @RequiredArgsConstructor
-public class BloomFliterRedisHandler {
+public class BloomFilterRedisHandler {
 
     private final StringRedisTemplate redisTemplate;
 
