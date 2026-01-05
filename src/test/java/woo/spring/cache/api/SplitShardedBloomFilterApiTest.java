@@ -17,5 +17,5 @@ public class SplitShardedBloomFilterApiTest {
         for (long itemId = 10000; itemId < 20000; itemId++) {
             ItemApiTestUtils.read(CACHE_STRATEGY, itemId);
         }
-    }git
+    }
 }
