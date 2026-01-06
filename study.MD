@@ -21,3 +21,12 @@ Bloom Filter - Shading
 - 블룸필터를 N개로 sharding 하여 분산
 - 각 Key에 샤드번호를 할당하여 여러 Key를 생성. Redis Cluster에서 적절히 분산
 - 샤딩전략은 BloomFilter를 물리적/논리적으로 분산 split 전략과 중첩하여 적용 가능
+
+Sub Filter
+
+- 이미 사용중인 BloomFilter를 확장. BloomFilter의 수용범위를 벗어나는 경우 신규데이터를 SubFilter에 데이터 입력
+- SubFilter가 늘어날 수록 성능, 메모리 점유 이슈가 있을 수 있으므로 최대 제한 필요
+- 오차율: 0.01 원본필터. 오차율0.01 SubFilter 2 개가 있으면 -> 오차율 = 1- (0.99)^3 = 0.0297 약 3%
+- 감소율 설정이 필요함
+    - 감소율 0.5라면 원본필터0.01 0005, 0.0025의 subFilter
+    - 1 - (0.99 * 0.995 * 0.9975) = 0.0149 약 1.5%

@@ -9,7 +9,7 @@ import java.util.List;
 
 @Component
 @RequiredArgsConstructor
-class SplitShardedBloomFilterRedisHandler {
+public class SplitShardedBloomFilterRedisHandler {
 
     private final SplitBloomFilterRedisHandler splitBloomFilterRedisHandler;
 
