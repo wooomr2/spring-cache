@@ -1,3 +1,44 @@
+###############################################################################
+# Line ending rules
+###############################################################################
 /gradlew text eol=lf
 *.bat text eol=crlf
-*.jar binary
+*.sh  text eol=lf
+
+###############################################################################
+# Binary files
+###############################################################################
+*.jar   binary
+*.zip   binary
+*.war   binary
+*.class binary
+*.png   binary
+*.jpg   binary
+*.gif   binary
+
+###############################################################################
+# GitHub Linguist (language detection)
+###############################################################################
+
+# Java는 무조건 Java로 인식
+*.java linguist-language=Java
+
+# 설정 파일들은 언어 통계에서 제외
+*.xml        linguist-vendored
+*.yml        linguist-vendored
+*.yaml       linguist-vendored
+*.properties linguist-vendored
+*.gradle     linguist-vendored
+*.kts        linguist-vendored
+
+# 문서 파일 제외
+*.md   linguist-documentation
+*.txt  linguist-documentation
+*.adoc linguist-documentation
+
+# 빌드 산출물 제외
+/build/**     linguist-vendored
+/target/**    linguist-vendored
+/out/**       linguist-vendored
+/.gradle/**   linguist-vendored
+/.idea/**     linguist-vendored
