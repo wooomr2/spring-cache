@@ -30,3 +30,12 @@ Sub Filter
 - 감소율 설정이 필요함
     - 감소율 0.5라면 원본필터0.01 0005, 0.0025의 subFilter
     - 1 - (0.99 * 0.995 * 0.9975) = 0.0149 약 1.5%
+
+---------------------------------------------------
+Cache Stampede : 다수 요청에서 캐시 미스가 발생하고 DataSource에 부하가 전파되는 현상
+- 캐시가 만료되는 시점에 요청 급증 / 아직 캐시가 없는 시점에 요청 급증
+- 해결 전략 > Jitter / PER(Probabilistic Early Recomputation) / Request Collapsing / Rate Limiter / Write-Through
+
+Jitter
+- 신호 처리 시간에 발생하는 불규칙적인 변동성을 캐시 전략에 적요
+- 캐시 만료 시간에 무작위한 변동성을 추가하는 전략
